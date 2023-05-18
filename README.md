@@ -1,6 +1,6 @@
 # Drag and Drop In Flutter
 
-A Flutter package allows you to easily implement the Functionality of Drag and Drop, it will also update the UI ifv  it matches and update the score in appbar.
+A Flutter package allows you to easily implement the Functionality of Drag and Drop, it will also update the UI if it matches right and update the score in appbar.
 
 ### ⚡&ensp;Social Media
 
