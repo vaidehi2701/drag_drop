@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -30,8 +31,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
 
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
@@ -57,8 +56,15 @@ class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black87,
       appBar: AppBar(
-        title: Text('Score${score.length}/6'),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        titleSpacing: 50,
+        title: Text(
+          'Score ${score.length}/5',
+          style: const TextStyle(fontSize: 24),
+        ),
       ),
       body: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         Column(
@@ -91,16 +97,25 @@ class _MyWidgetState extends State<MyWidget> {
       builder: (BuildContext context, List<String?> incoming, List rejected) {
         if (score[emoji] == true) {
           return Container(
-            color: Colors.red,
+            decoration: const BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.all(Radius.circular(10))),
             alignment: Alignment.center,
             height: 60,
             width: 100,
-            child: const Text('Correct!'),
+            child: const Text(
+              'Correct !!!',
+              style: TextStyle(fontSize: 18, color: Colors.white),
+            ),
           );
         } else {
           return Container(
-            color: choices[emoji],
-            child: const Text("welcome"),
+            height: 40,
+            width: 100,
+            decoration: BoxDecoration(
+                color: choices[emoji],
+                borderRadius: const BorderRadius.all(Radius.circular(10))),
+            child: const Text(""),
           );
         }
       },
@@ -125,11 +140,11 @@ class Emoji extends StatelessWidget {
       color: Colors.transparent,
       child: Container(
         alignment: Alignment.center,
-        height: 50,
+        height: 60,
         padding: const EdgeInsets.all(10),
         child: Text(
           emoji,
-          style: const TextStyle(color: Colors.black, fontSize: 50),
+          style: const TextStyle(color: Colors.black, fontSize: 30),
         ), // Text
       ),
     );
